@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct H2: ViewModifier {
     let labelColor: Color
     public func body(content: Content) -> some View {
@@ -20,7 +19,6 @@ public struct H2: ViewModifier {
     }
 }
 
-@available(iOS 13.0, *)
 public struct P: ViewModifier {
     let labelColor: Color
     public func body(content: Content) -> some View {
@@ -34,7 +32,6 @@ public struct P: ViewModifier {
     }
 }
 
-@available(iOS 14.0, *)
 public struct BackgroundLabelStyle: LabelStyle {
     let color: Color
     let backgroundColor: Color
@@ -48,7 +45,6 @@ public struct BackgroundLabelStyle: LabelStyle {
     }
 }
 
-@available(iOS 13.0, *)
 public struct EmptyModifier<Placeholder: View>: ViewModifier {
     let numberOfItems: Int
     let placeholder: Placeholder
@@ -62,7 +58,6 @@ public struct EmptyModifier<Placeholder: View>: ViewModifier {
     }
 }
 
-@available(iOS 13.0, *)
 public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
     let items: [Any]
     let placeholder: Placeholder
@@ -76,7 +71,6 @@ public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
     }
 }
 
-@available(iOS 13.0, *)
 public struct ButtonPress: ViewModifier {
     var onPress: () -> Void
     var onRelease: () -> Void
