@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct H2: ViewModifier {
+public struct H2: ViewModifier {
     let labelColor: Color
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .font(.title)
             .foregroundColor(labelColor)
@@ -21,9 +21,9 @@ struct H2: ViewModifier {
 }
 
 @available(iOS 13.0, *)
-struct P: ViewModifier {
+public struct P: ViewModifier {
     let labelColor: Color
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .font(.body)
             .foregroundColor(labelColor)
@@ -35,11 +35,11 @@ struct P: ViewModifier {
 }
 
 @available(iOS 14.0, *)
-struct BackgroundLabelStyle: LabelStyle {
+public struct BackgroundLabelStyle: LabelStyle {
     let color: Color
     let backgroundColor: Color
     let radius: CGFloat
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         Label(configuration)
             .padding()
             .foregroundColor(color)
@@ -49,11 +49,11 @@ struct BackgroundLabelStyle: LabelStyle {
 }
 
 @available(iOS 13.0, *)
-struct EmptyModifier<Placeholder: View>: ViewModifier {
+public struct EmptyModifier<Placeholder: View>: ViewModifier {
     let numberOfItems: Int
     let placeholder: Placeholder
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         if numberOfItems != 0 {
             content
         } else {
@@ -63,11 +63,11 @@ struct EmptyModifier<Placeholder: View>: ViewModifier {
 }
 
 @available(iOS 13.0, *)
-struct EmptyDataModifier<Placeholder: View>: ViewModifier {
+public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
     let items: [Any]
     let placeholder: Placeholder
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         if !items.isEmpty {
             content
         } else {
@@ -77,11 +77,11 @@ struct EmptyDataModifier<Placeholder: View>: ViewModifier {
 }
 
 @available(iOS 13.0, *)
-struct ButtonPress: ViewModifier {
+public struct ButtonPress: ViewModifier {
     var onPress: () -> Void
     var onRelease: () -> Void
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .simultaneousGesture(
                 DragGesture(minimumDistance: 0)
