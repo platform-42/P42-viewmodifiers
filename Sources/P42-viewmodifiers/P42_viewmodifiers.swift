@@ -98,6 +98,11 @@ public struct ButtonPress: ViewModifier {
     var onPress: () -> Void
     var onRelease: () -> Void
     
+    public init(onPress: @escaping () -> Void, onRelease: @escaping () -> Void) {
+        self.onPress = onPress
+        self.onRelease = onRelease
+    }
+    
     public func body(content: Content) -> some View {
         content
             .simultaneousGesture(
