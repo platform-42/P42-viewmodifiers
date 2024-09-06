@@ -11,6 +11,10 @@ import SwiftUI
 public struct H2: ViewModifier {
     let labelColor: Color
     
+    public init(labelColor: Color) {
+        self.labelColor = labelColor
+    }
+    
     public func body(content: Content) -> some View {
         content
             .font(.title)
@@ -22,6 +26,11 @@ public struct H2: ViewModifier {
 
 public struct P: ViewModifier {
     let labelColor: Color
+    
+    public init(labelColor: Color) {
+        self.labelColor = labelColor
+    }
+    
     public func body(content: Content) -> some View {
         content
             .font(.body)
@@ -60,7 +69,6 @@ public struct EmptyModifier<Placeholder: View>: ViewModifier {
     let numberOfItems: Int
     let placeholder: Placeholder
     
-    // Explicitly declare a public initializer
     public init(numberOfItems: Int, placeholder: Placeholder) {
         self.numberOfItems = numberOfItems
         self.placeholder = placeholder
@@ -79,7 +87,6 @@ public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
     let items: [Any]
     let placeholder: Placeholder
     
-    // Explicitly declare a public initializer
     public init(items: [Any], placeholder: Placeholder) {
         self.items = items
         self.placeholder = placeholder
