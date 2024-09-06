@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct H2: ViewModifier {
     let labelColor: Color
+    
     public func body(content: Content) -> some View {
         content
             .font(.title)
@@ -48,6 +49,12 @@ public struct BackgroundLabelStyle: LabelStyle {
 public struct EmptyModifier<Placeholder: View>: ViewModifier {
     let numberOfItems: Int
     let placeholder: Placeholder
+    
+    // Explicitly declare a public initializer
+    public init(numberOfItems: Int, placeholder: Placeholder) {
+        self.numberOfItems = numberOfItems
+        self.placeholder = placeholder
+    }
     
     public func body(content: Content) -> some View {
         if numberOfItems != 0 {
