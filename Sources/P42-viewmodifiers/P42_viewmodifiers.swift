@@ -93,6 +93,7 @@ public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
         }
     }
 }
+
 public struct ButtonPress: ViewModifier {
     var onPress: () -> Void
     var onRelease: () -> Void
@@ -110,3 +111,22 @@ public struct ButtonPress: ViewModifier {
             )
     }
 }
+/*
+ public struct ButtonPress: ViewModifier {
+ var onPress: () -> Void
+ var onRelease: () -> Void
+ 
+ public func body(content: Content) -> some View {
+ content
+ .simultaneousGesture(
+ DragGesture(minimumDistance: 0)
+ .onChanged({ _ in
+ onPress()
+ })
+ .onEnded({ _ in
+ onRelease()
+ })
+ )
+ }
+ }
+ */
