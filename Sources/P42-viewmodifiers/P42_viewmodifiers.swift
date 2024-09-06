@@ -37,12 +37,22 @@ public struct BackgroundLabelStyle: LabelStyle {
     let color: Color
     let backgroundColor: Color
     let radius: CGFloat
+    
+    public init(color: Color, backgroundColor: Color, radius: CGFloat) {
+        self.color = color
+        self.backgroundColor = backgroundColor
+        self.radius = radius
+    }
+    
     public func makeBody(configuration: Configuration) -> some View {
-        Label(configuration)
-            .padding()
-            .foregroundColor(color)
-            .background(backgroundColor)
-            .cornerRadius(radius)
+        HStack {
+            configuration.icon
+            configuration.title
+        }
+        .padding()
+        .foregroundColor(color)
+        .background(backgroundColor)
+        .cornerRadius(radius)
     }
 }
 
@@ -69,6 +79,12 @@ public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
     let items: [Any]
     let placeholder: Placeholder
     
+    // Explicitly declare a public initializer
+    public init(items: [Any], placeholder: Placeholder) {
+        self.items = items
+        self.placeholder = placeholder
+    }
+    
     public func body(content: Content) -> some View {
         if !items.isEmpty {
             content
@@ -77,7 +93,6 @@ public struct EmptyDataModifier<Placeholder: View>: ViewModifier {
         }
     }
 }
-
 public struct ButtonPress: ViewModifier {
     var onPress: () -> Void
     var onRelease: () -> Void
