@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 public struct H2: ViewModifier {
     let labelColor: Color
     
@@ -123,22 +124,26 @@ public struct ButtonPress: ViewModifier {
             )
     }
 }
-/*
- public struct ButtonPress: ViewModifier {
- var onPress: () -> Void
- var onRelease: () -> Void
- 
- public func body(content: Content) -> some View {
- content
- .simultaneousGesture(
- DragGesture(minimumDistance: 0)
- .onChanged({ _ in
- onPress()
- })
- .onEnded({ _ in
- onRelease()
- })
- )
- }
- }
- */
+
+public struct NavigationBarColorModifier: ViewModifier {
+    private var color: UIColor
+
+    public init(color: UIColor) {
+        self.color = color
+    }
+
+    public func body(content: Content) -> some View {
+        content
+            .onAppear {
+                let coloredAppearance = UINavigationBarAppearance()
+                coloredAppearance.configureWithOpaqueBackground()
+                coloredAppearance.backgroundColor = color
+                coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+                coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+                UINavigationBar.appearance().standardAppearance = coloredAppearance
+                UINavigationBar.appearance().compactAppearance = coloredAppearance
+                UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+            }
+    }
+}
