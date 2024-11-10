@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import UIKit
 
 
 public struct H2: ViewModifier {
@@ -126,25 +125,3 @@ public struct ButtonPress: ViewModifier {
     }
 }
 
-public struct NavigationBarColorModifier: ViewModifier {
-    private var color: UIColor
-
-    public init(color: UIColor) {
-        self.color = color
-    }
-
-    public func body(content: Content) -> some View {
-        content
-            .onAppear {
-                let coloredAppearance = UINavigationBarAppearance()
-                coloredAppearance.configureWithOpaqueBackground()
-                coloredAppearance.backgroundColor = color
-                coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-                coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-                UINavigationBar.appearance().standardAppearance = coloredAppearance
-                UINavigationBar.appearance().compactAppearance = coloredAppearance
-                UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-            }
-    }
-}
