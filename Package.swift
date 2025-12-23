@@ -4,8 +4,8 @@ import PackageDescription
 let package = Package(
     name: "P42-viewmodifiers",
     platforms: [
-        .iOS(.v14),
-        .watchOS(.v7)
+        .iOS(.v17),
+        .watchOS(.v10)
     ],
     products: [
         .library(
