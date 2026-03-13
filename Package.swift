@@ -2,21 +2,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "P42-viewmodifiers",
+    name: "P42ViewModifiers",
     platforms: [
         .iOS(.v17),
         .watchOS(.v10)
     ],
     products: [
         .library(
-            name: "P42-viewmodifiers",
-            targets: ["P42-viewmodifiers"]),
+            name: "P42ViewModifiers",
+            targets: ["P42ViewModifiers"]),
     ],
     targets: [
         .target(
-            name: "P42-viewmodifiers"),
-        .testTarget(
-            name: "P42-viewmodifiersTests",
-            dependencies: ["P42-viewmodifiers"]),
+            name: "P42ViewModifiers")
     ]
 )
